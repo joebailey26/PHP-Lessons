@@ -15,11 +15,28 @@
         (coming soon!) find out exactly what was in the chart in
         any year in the past 60 years. </p>
         <form method="post" action="search_results.php">
-            <fieldset>
                 <label>Please enter an artist:</label>
                 <input name="theArtist" required />
                 <input type="submit" value="Go!" />
-            </fieldset>
+        </form>
+        <form method="post" action="search_results_alt.php">
+                <label for="type">Please choose how you want to search</label>
+                <select name="type">
+                    <?php 
+                        $array = [
+                            "1" => "Year",
+                            "2" => "Title",
+                            "3" => "Artist",
+                        ];
+
+                        foreach($array as $i => $item) {
+                            echo "<option>$array[$i]</option>";
+                        }
+                    ?>
+                </select>
+                <label for="search">Please search:</label>
+                <input name="search" required />
+                <input type="submit" value="Go!" />
         </form>
         <?php links() ?>
     </body>

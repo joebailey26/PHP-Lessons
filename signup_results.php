@@ -1,6 +1,4 @@
-<?php 
-    include("functions.php");
-
+<?php
     $name = $_POST["name"];
     $username = $_POST["username"];
     $day = $_POST["day"];
