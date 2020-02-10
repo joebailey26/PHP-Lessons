@@ -16,7 +16,7 @@
             <label for="day">Day:</label>
             <select name="day">
             <?php 
-                for ($x = 0; $x <= 31; $x++) {
+                for ($x = 1; $x <= 31; $x++) {
                     echo "<option>$x</option>";
                 }
             ?>

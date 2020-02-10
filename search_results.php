@@ -12,10 +12,7 @@
         // Try to do the following code. It might generate an exception (error)
         try 
         {
-            db();
-
-            // Set up exception-based error handling
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            require("database_connection.php");
 
             // Send an SQL query to the database server
             $results = $conn->query("select * from songs where artist='$a'");
