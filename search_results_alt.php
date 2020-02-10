@@ -2,7 +2,7 @@
     $type = $_POST["type"];
     $search = $_POST["search"];
 
-    if ($a = "") {
+    if ($search == "") {
         echo "<p>You did not search for anything</p>";
     }
     else {

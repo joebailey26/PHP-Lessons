@@ -1,7 +1,7 @@
 <?php
     $a = $_POST["theArtist"];
 
-    if ($a = "") {
+    if ($a == "") {
         echo "<p>You did not search for anything</p>";
     }
     else {
