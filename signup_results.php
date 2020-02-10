@@ -5,6 +5,7 @@
     $month = $_POST["month"];
     $year = $_POST["year"];
     $dob = $day . '/' . $month . '/' . $year;
+    $pass = $_POST["password"];
 
     echo "You have signed up with:";
     echo "<p>Name: $name</p>";
@@ -22,7 +23,7 @@
         require("database_connection.php");
 
         // Send an SQL query to the database server
-        $results = $conn->query("insert into ht_users (name, username, dob) values ('$name', '$username', '$dob')" );
+        $results = $conn->query("insert into ht_users (name, username, dob, password) values ('$name', '$username', '$dob', '$pass)" );
 
         // Loop through the results
         echo "<p>";

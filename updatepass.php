@@ -6,10 +6,10 @@
         <h1>Update a password</h1>
         <form method="post" action="updatepass_results.php">
             <label for="username">Username:</label>
-            <input name="username" />
+            <input name="username" required />
             <br>
             <label for="newpassword">New password:<label>
-            <input name="newpassword" type="password" />
+            <input name="newpassword" type="password" required />
             <br>
             <input type="submit" value="Go!"/>
         </form>
