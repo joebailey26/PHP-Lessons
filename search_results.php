@@ -1,4 +1,5 @@
 <?php
+    include("functions.php");
     $a = $_POST["theArtist"];
 
     if ($a == "") {
@@ -37,5 +38,6 @@
         {
             echo "Error: $e";
         }
-    };    
+    };  
+    links("Search");  
 ?>

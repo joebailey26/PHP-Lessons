@@ -1,4 +1,5 @@
 <?php
+    include("functions.php");
     $name = $_POST["name"];
     $username = $_POST["username"];
     $day = $_POST["day"];
@@ -34,5 +35,5 @@
     catch(PDOException $e) {
         echo "Error: $e";
     };
-    
+    links("Signup");
 ?>

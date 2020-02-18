@@ -1,4 +1,5 @@
 <?php 
+    include("functions.php");
     $id = $_GET["songID"];
 
     try {
@@ -27,4 +28,5 @@
     echo "<input type='number' name='songID' value='".$id."'hidden/>";
     echo "<input type='submit' value='Order'/>";
     echo "</form>";
+    links("Order");
 ?>

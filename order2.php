@@ -1,4 +1,5 @@
 <?php 
+    include("functions.php");
     $id = $_POST["songID"];
     $qty = $_POST["qty"];
 
@@ -28,4 +29,5 @@
     {
         echo "Error: $e";
     }
+    links("Order");
 ?>

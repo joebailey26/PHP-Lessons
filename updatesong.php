@@ -1,3 +1,4 @@
+<?php include("functions.php"); ?>
 <html>
     <head>
         <title>Change details of existing song</title>
@@ -10,5 +11,6 @@
             <br>
             <input type="submit" value="Go!" />
         </form>
+        <?php links("Update Song") ?>
     </body>
 </html>

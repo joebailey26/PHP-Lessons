@@ -1,3 +1,4 @@
+<?php include("functions.php"); ?>
 <html>
     <head>
         <title>Change password</title>
@@ -13,5 +14,6 @@
             <br>
             <input type="submit" value="Go!"/>
         </form>
+        <?php links("Update Password") ?>
     </body>
 </html>

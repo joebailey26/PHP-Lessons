@@ -34,10 +34,11 @@
                         }
                     ?>
                 </select>
+                <br/>
                 <label for="search">Please search:</label>
                 <input name="search" required />
                 <input type="submit" value="Go!" />
         </form>
-        <?php links() ?>
+        <?php links("Home") ?>
     </body>
 </html>

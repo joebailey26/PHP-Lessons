@@ -1,4 +1,5 @@
 <?php
+    include("functions.php");
     $id = $_POST["id"];
 
     if ($id == "") {
@@ -33,5 +34,5 @@
             echo "Error: $e";
         }
     };
-    
+    links("Update Song");
 ?>

@@ -1,4 +1,5 @@
 <?php
+    include("functions.php");
     $id = $_POST["id"];
     $price = $_POST["price"];
     $chart_position = $_POST["chart_position"];
@@ -16,4 +17,5 @@
     {
         echo "Error: $e";
     };   
+    links("Update Song");
 ?>

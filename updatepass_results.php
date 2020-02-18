@@ -1,4 +1,5 @@
 <?php
+    include("functions.php");
     $username = $_POST["username"];
     $newpassword = $_POST["newpassword"];
 
@@ -29,4 +30,5 @@
             echo "Error: $e";
         }
     };    
+    links("Update Password");
 ?>

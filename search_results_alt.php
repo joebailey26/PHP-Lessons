@@ -1,4 +1,5 @@
 <?php
+    include("functions.php");
     $type = $_POST["type"];
     $search = $_POST["search"];
 
@@ -37,4 +38,5 @@
             echo "Error: $e";
         }
     };    
+    links("Search");
 ?>
