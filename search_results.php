@@ -13,20 +13,21 @@
             // Send an SQL query to the database server
             $results = $conn->query("select * from songs where artist='$a'");
 
-            $row = $results->fetch(PDO::FETCH_ASSOC);
-            if ($row == false) {
+            if ($results->fetch(PDO::FETCH_ASSOC) == false) {
                 echo "Your search returned no results!";
             }
             else {
                 echo "<p>You are searching for songs by $a</p>";
                 // Loop through the results
-                while($row=$results->fetch(PDO::FETCH_ASSOC))
-                {
+                while($row=$results->fetch(PDO::FETCH_ASSOC)) {
                     echo "<p>";
                     echo " Song Title ". $row["title"] ."<br/> ";
                     echo " Artist " . $row["artist"] . "<br/> " ; 
                     echo " Year " .$row["year"]. "<br/>" ; 
                     echo " Genre " .$row["genre"]. "<br/>" ; 
+                    echo "<a href='download.php?songID=". $row["id"] ."'>Download this hit</a><br/>";
+                    echo "<a href='https://www.youtube.com/results?search_query=" . $row["title"] . "+" . $row["artist"] . "'>Watch on YouTube</a><br/>";
+                    echo "<a href='order1.php?songID=" . $row["id"] . "'>Order this hit</a><br/>";
                     echo "</p>";
                 }
             }
