@@ -15,8 +15,7 @@
             // Send an SQL query to the database server
             $results = $conn->query("select * from ht_users where username='$username'");
 
-            $row = $results->fetch(PDO::FETCH_ASSOC);
-            if ($row == false) {
+            if ($results->fetch(PDO::FETCH_ASSOC) == false) {
                 echo "That user doesn't exist";
             }
             else {

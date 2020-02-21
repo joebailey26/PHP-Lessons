@@ -38,7 +38,7 @@
         require("database_connection.php");
 
         // Send an SQL query to the database server
-        $results = $conn->query("insert into ht_users (name, username, dayofbirth, monthofbirth, yearofbirth, password) values ('$name', '$username', '$day', '$month', '$year', '$pass')" );
+        $conn->query("insert into ht_users (name, username, dayofbirth, monthofbirth, yearofbirth, password) values ('$name', '$username', '$day', '$month', '$year', '$pass')" );
 
         // Loop through the results
         echo "<p>";

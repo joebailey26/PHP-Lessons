@@ -10,18 +10,19 @@
 
         $results = $conn->query("select * from wadsongs where id='$id'");
 
-        $row = $results->fetch(PDO::FETCH_ASSOC);
+        while($row==$results->fetch(PDO::FETCH_ASSOC)) {
 
-        if ($row["qty"] < $qty) {
-            echo "<p>Not enough stock</p>";
-        }
-        else {
-            $new_qty = $row["qty"] - $qty;
+            if ($row["qty"] < $qty) {
+                echo "<p>Not enough stock</p>";
+            }
+            else {
+                $new_qty = $row["qty"] - $qty;
 
-            // Send an SQL query to the database server
-            $conn->query("update songs set qty='$new_qty' where id='$id'");
+                // Send an SQL query to the database server
+                $conn->query("update songs set qty='$new_qty' where id='$id'");
 
-            echo "<p>Order placed.</p>";
+                echo "<p>Order placed.</p>";
+            }
         }
     }
     // Catch any exceptions (errors) thrown from the 'try' block

@@ -14,8 +14,7 @@
             // Send an SQL query to the database server
             $results = $conn->query("select * from wadsongs where id='$id'");
 
-            $row = $results->fetch(PDO::FETCH_ASSOC);
-            if ($row == false) {
+            if ($results->fetch(PDO::FETCH_ASSOC) == false) {
                 echo "Your search returned no results!";
             }
             else {

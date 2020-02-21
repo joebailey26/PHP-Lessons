@@ -18,15 +18,13 @@
             // Send an SQL query to the database server
             $results = $conn->query("select * from wadsongs where artist='$a'");
 
-            $row = $results->fetch(PDO::FETCH_ASSOC);
-
-            if (!$row) {
+            if (!$results->fetch(PDO::FETCH_ASSOC)) {
                 echo "Your search returned no results!";
             }
             else {
                 echo "<p>You are searching for songs by $a</p>";
                 // Loop through the results
-                while($row==$results->fetch(PDO::FETCH_ASSOC)) {
+                while($row=$results->fetch(PDO::FETCH_ASSOC)) {
                     echo "<p>";
                     echo " Song Title ". $row["title"] ."<br/> ";
                     echo " Artist " . $row["artist"] . "<br/> " ; 

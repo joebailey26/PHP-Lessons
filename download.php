@@ -2,8 +2,7 @@
     $id = $_GET["songID"];
 
     // Try to do the following code. It might generate an exception (error)
-    try 
-    {
+    try {
         require("database_connection.php");
 
         $results = $conn->query("select * from wadsongs where ID='$id'");
@@ -24,8 +23,7 @@
         */
     }
     // Catch any exceptions (errors) thrown from the 'try' block
-    catch(PDOException $e) 
-    {
+    catch(PDOException $e) {
         echo "Error: $e";
     }
 ?>

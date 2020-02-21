@@ -18,8 +18,7 @@
         }
     }
     // Catch any exceptions (errors) thrown from the 'try' block
-    catch(PDOException $e) 
-    {
+    catch(PDOException $e) {
         echo "Error: $e";
     }
 
