@@ -1,4 +1,5 @@
 <?php
+    session_start();
     echo "<style>
         html {
             display: grid;
@@ -25,10 +26,33 @@
         }
     </style>";
     function links($title) {
-        $array = [
-            "Home" => "index.php",
-            "SignUp" => "signup.php",
-        ];
+        if (!$_SESSION["username"]) {
+            echo $_SESSION["username"];
+            $array = [
+                "Home" => "index.php",
+                "SignUp" => "signup.php",
+                "Login" => "login.php"
+            ];
+        }
+        else if (!$_SESSION["admin"]) {
+            $array = [
+                "Home" => "index.php",
+                "SignUp" => "signup.php",
+                "Login" => "login.php",
+                "Logout" => "logout.php",
+                "Update Password" => "updatepass.php"
+            ];
+        }
+        else {
+            $array = [
+                "Home" => "index.php",
+                "SignUp" => "signup.php",
+                "Login" => "login.php",
+                "Logout" => "logout.php",
+                "Update Password" => "updatepass.php",
+                "Update Song" => "updatesong.php"
+            ];
+        }
         echo "<div class='sidebar'>";
         echo "<h3>".$title."</h3>";
         foreach($array as $i => $item) {

@@ -1,10 +1,37 @@
-<?php include("functions.php"); ?>
+<?php
+    include("functions.php"); 
+
+    if (!$_SESSION["gatekeeper"]) {
+        header("Location: login.php");
+    }
+?>
 <!DOCTYPE html>
 <html>
     <head>
         <title>HitTastic!</title>
     </head>
     <body>
+    <?php
+        if ($_SESSION["gatekeeper"]) {
+            $username = $_SESSION["gatekeeper"];
+            // Try to do the following code. It might generate an exception (error)
+            try 
+            {
+                require("database_connection.php");
+
+                // Send an SQL query to the database server
+                $results = $conn->query("select * from ht_users where username='$username'");
+
+                $row = $results->fetch(PDO::FETCH_ASSOC);
+                echo '<h2>Welcome Back '.$username.'. Your balance is £'.$row["balance"].'</h2>';
+            }
+            // Catch any exceptions (errors) thrown from the 'try' block
+            catch(PDOException $e) 
+            {
+                echo "Error: $e";
+            }
+        }
+    ?>
         <h1>HitTastic!</h1>
         <p>Search and download your favorite 40 hits on
         HitTastic! Whether it's pop, rock, rap, or pure liquid

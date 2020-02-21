@@ -16,12 +16,13 @@
             $results = $conn->query("select * from wadsongs where $type='$search'");
 
             $row = $results->fetch(PDO::FETCH_ASSOC);
-            if ($row == false) {
+
+            if (!$row) {
                 echo "Your search returned no results!";
             }
             else {
                 // Loop through the results
-                while($row=$results->fetch(PDO::FETCH_ASSOC))
+                while($row==$results->fetch(PDO::FETCH_ASSOC))
                 {
                     echo "<p>";
                     echo " Song Title ". $row["title"] ."<br/> ";

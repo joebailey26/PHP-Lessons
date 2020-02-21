@@ -1,4 +1,4 @@
-<?php 
+<?php
     $id = $_GET["songID"];
 
     // Try to do the following code. It might generate an exception (error)

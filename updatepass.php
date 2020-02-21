@@ -1,4 +1,11 @@
-<?php include("functions.php"); ?>
+<?php
+    include("functions.php");
+
+    if (!$_SESSION["gatekeeper"] || !$_SESSION["admin"]) {
+        header("Location: login.php");
+    }
+
+?>
 <html>
     <head>
         <title>Change password</title>

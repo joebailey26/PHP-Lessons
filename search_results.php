@@ -1,5 +1,9 @@
 <?php
-    include("functions.php");
+    include("functions.php"); 
+
+    if (!$_SESSION["gatekeeper"]) {
+        header("Location: login.php");
+    }
     $a = $_POST["theArtist"];
 
     if ($a == "") {
@@ -14,13 +18,15 @@
             // Send an SQL query to the database server
             $results = $conn->query("select * from wadsongs where artist='$a'");
 
-            if ($results->fetch(PDO::FETCH_ASSOC) == false) {
+            $row = $results->fetch(PDO::FETCH_ASSOC);
+
+            if (!$row) {
                 echo "Your search returned no results!";
             }
             else {
                 echo "<p>You are searching for songs by $a</p>";
                 // Loop through the results
-                while($row=$results->fetch(PDO::FETCH_ASSOC)) {
+                while($row==$results->fetch(PDO::FETCH_ASSOC)) {
                     echo "<p>";
                     echo " Song Title ". $row["title"] ."<br/> ";
                     echo " Artist " . $row["artist"] . "<br/> " ; 
