@@ -6,14 +6,14 @@
     {
         require("database_connection.php");
 
-        $results = $conn->query("select * from songs where id='$id'");
+        $results = $conn->query("select * from wadsongs where ID='$id'");
 
         $row = $results->fetch(PDO::FETCH_ASSOC);
 
         $downloads = $row["downloads"] - 1;
 
         // Send an SQL query to the database server
-        $conn->query("update songs set downloads='$downloads' where id='$id'");
+        $conn->query("update wadsongs set downloads='$downloads' where ID='$id'");
 
         /* Download file
             $file_url = 'http://www.myremoteserver.com/file.exe';

@@ -6,7 +6,7 @@
         require("database_connection.php");
 
         // Send an SQL query to the database server
-        $results = $conn->query("select * from songs where id='$id'");
+        $results = $conn->query("select * from wadsongs where id='$id'");
         // Loop through the results
         while($row=$results->fetch(PDO::FETCH_ASSOC)) {
             echo "<p>";

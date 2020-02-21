@@ -8,7 +8,7 @@
     {
         require("database_connection.php");
 
-        $results = $conn->query("select * from songs where id='$id'");
+        $results = $conn->query("select * from wadsongs where id='$id'");
 
         $row = $results->fetch(PDO::FETCH_ASSOC);
 

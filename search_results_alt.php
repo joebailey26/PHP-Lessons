@@ -13,7 +13,7 @@
             require("database_connection.php");
 
             // Send an SQL query to the database server
-            $results = $conn->query("select * from songs where $type='$search'");
+            $results = $conn->query("select * from wadsongs where $type='$search'");
 
             $row = $results->fetch(PDO::FETCH_ASSOC);
             if ($row == false) {
@@ -28,6 +28,9 @@
                     echo " Artist " . $row["artist"] . "<br/> " ; 
                     echo " Year " .$row["year"]. "<br/>" ; 
                     echo " Genre " .$row["genre"]. "<br/>" ; 
+                    echo "<a href='download.php?songID=". $row["ID"] ."'>Download this hit</a><br/>";
+                    echo "<a href='https://www.youtube.com/results?search_query=" . $row["title"] . "+" . $row["artist"] . "'>Watch on YouTube</a><br/>";
+                    echo "<a href='order1.php?songID=" . $row["ID"] . "'>Order this hit</a><br/>";
                     echo "</p>";
                 }
             }

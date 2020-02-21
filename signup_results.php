@@ -1,11 +1,25 @@
 <?php
     include("functions.php");
+    $array = [
+        "1" => "January",
+        "2" => "February",
+        "3" => "March",
+        "4" => "April",
+        "5" => "May",
+        "6" => "June",
+        "7" => "July",
+        "8" => "August",
+        "9" => "September",
+        "10" => "October",
+        "11" => "November",
+        "12" => "December",
+    ];
     $name = $_POST["name"];
     $username = $_POST["username"];
     $day = $_POST["day"];
     $month = $_POST["month"];
     $year = $_POST["year"];
-    $dob = $day . '/' . $month . '/' . $year;
+    $dob = $day . '/' . $array[$month] . '/' . $year;
     $pass = $_POST["password"];
 
     echo "You have signed up with:";
@@ -24,7 +38,7 @@
         require("database_connection.php");
 
         // Send an SQL query to the database server
-        $results = $conn->query("insert into ht_users (name, username, dob, password) values ('$name', '$username', '$dob', '$pass)" );
+        $results = $conn->query("insert into ht_users (name, username, dayofbirth, monthofbirth, yearofbirth, password) values ('$name', '$username', '$day', '$month', '$year', '$pass')" );
 
         // Loop through the results
         echo "<p>";

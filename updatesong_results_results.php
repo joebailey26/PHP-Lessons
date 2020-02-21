@@ -9,7 +9,7 @@
     {
         require("database_connection.php");
 
-        $conn->query("update songs set price='$price', chart_position='$chart_position' where id='$id'");
+        $conn->query("update wadsongs set price='$price', chart='$chart_position' where id='$id'");
         echo "<p>Details updated successfully</p>";
     }
     // Catch any exceptions (errors) thrown from the 'try' block

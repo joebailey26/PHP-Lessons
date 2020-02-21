@@ -39,7 +39,7 @@
             ];
 
             foreach($array as $i => $item) {
-                echo "<option>$array[$i]</option>";
+                echo "<option value='$i'>$array[$i]</option>";
             }
         ?>
         </select>
