@@ -1,4 +1,12 @@
-<?php include("functions.php"); ?>
+<?php
+
+    if (!$_SESSION["gatekeeper"] || !$_SESSION["admin"]) {
+        header("Location: login.php");
+    }
+
+    include("functions.php"); 
+
+?>
 <html>
     <head>
         <title>Change details of existing song</title>

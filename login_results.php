@@ -3,7 +3,6 @@
 
     $username = $_POST["username"];
     $password = $_POST["password"];
-
     if ($_SESSION["gatekeeper"] == $username) {
         header("Location: index.php");
     }
