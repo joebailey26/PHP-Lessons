@@ -9,10 +9,11 @@
         {
             require("database_connection.php");
 
-            $results = $conn->query("select * from wadsongs where id='$id'");
+            $statement = $conn->prepare("select * from wadsongs where id=?");
 
-            while($row==$results->fetch(PDO::FETCH_ASSOC)) {
+            $statement->execute([$id]);
 
+            while($row=$statement->fetch()) {
                 if ($row["qty"] < $qty) {
                     echo "<p>Not enough stock</p>";
                 }
@@ -20,7 +21,9 @@
                     $new_qty = $row["qty"] - $qty;
 
                     // Send an SQL query to the database server
-                    $conn->query("update songs set qty='$new_qty' where id='$id'");
+                    $statement_two = $conn->prepare("update songs set qty=? where id=?");
+
+                    $statement_two->execute([$new_qty, $id]);
 
                     echo "<p>Order placed.</p>";
                 }

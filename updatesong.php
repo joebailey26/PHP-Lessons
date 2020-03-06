@@ -1,6 +1,6 @@
 <?php
 
-    if (!$_SESSION["gatekeeper"] || !$_SESSION["admin"]) {
+    if (!$_SESSION["admin"]) {
         header("Location: login.php");
     }
 

@@ -14,14 +14,16 @@
                 require("database_connection.php");
 
                 // Send an SQL query to the database server
-                $results = $conn->query("select * from wadsongs where $type='$search'");
+                $statement = $conn->query("select * from wadsongs where ?=?");
 
-                if (!$results->fetch(PDO::FETCH_ASSOC)) {
+                $statement->execute([$type, $search]);
+
+                if (!$statement->fetch()) {
                     echo "Your search returned no results!";
                 }
                 else {
                     // Loop through the results
-                    while($row=$results->fetch(PDO::FETCH_ASSOC)) {
+                    while($row=$statement->fetch()) {
                         echo "<p>";
                         echo " Song Title ". $row["title"] ."<br/> ";
                         echo " Artist " . $row["artist"] . "<br/> " ; 

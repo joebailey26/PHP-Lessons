@@ -13,9 +13,11 @@
                 require("database_connection.php");
 
                 // Send an SQL query to the database server
-                $results = $conn->query("select * from wadsongs where id='$id'");
+                $statement = $conn->prepare("select * from wadsongs where id=?");
 
-                if ($results->fetch(PDO::FETCH_ASSOC) == false) {
+                $statement->execute([$id]);
+
+                if ($statement->fetch() == false) {
                     echo "Your search returned no results!";
                 }
                 else {

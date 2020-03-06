@@ -7,9 +7,11 @@
             require("database_connection.php");
 
             // Send an SQL query to the database server
-            $results = $conn->query("select * from wadsongs where id='$id'");
+            $statement = $conn->prepare("select * from wadsongs where id=?");
+
+            $statement->execute([$id]);
             // Loop through the results
-            while($row=$results->fetch(PDO::FETCH_ASSOC)) {
+            while($row=$statement->fetch()) {
                 echo "<p>";
                 echo " Song Title ". $row["title"] ."<br/> ";
                 echo " Artist " . $row["artist"] . "<br/> " ; 

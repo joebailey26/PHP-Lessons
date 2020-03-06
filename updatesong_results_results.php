@@ -10,7 +10,10 @@
         {
             require("database_connection.php");
 
-            $conn->query("update wadsongs set price='$price', chart='$chart_position' where id='$id'");
+            $statement = $conn->query("update wadsongs set price=?, chart=? where id=?");
+
+            $statement->execute([$price, $chart_position, $id]);
+
             echo "<p>Details updated successfully</p>";
         }
         // Catch any exceptions (errors) thrown from the 'try' block

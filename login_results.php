@@ -12,22 +12,23 @@
             // Try to do the following code. It might generate an exception (error)
             try {
                 require("database_connection.php");
-    
-                $results = $conn->query("select * from ht_users where username='$username' AND password='$password'");
 
-                if ($results->fetch(PDO::FETCH_ASSOC)) {
-                    while($row=$results->fetch(PDO::FETCH_ASSOC)) {
+                $statement = $conn->prepare("select * from ht_users where username=? AND password=?");
+
+                $statement->execute([$username, $password]);
+
+                while($row=$statement->fetch()) {
+                    if ($row) {
                         $_SESSION["gatekeeper"] = $row["username"];
                         if ($row["isadmin"] == 1) {
                             $_SESSION["admin"] = $row["isadmin"];
                         };
                         header("Location: index.php");
-                    };
-                }
-                else {
-                    echo "Try again";
-                }
-    
+                    }
+                    else {
+                        echo "Try again";
+                    }
+                };
             }
             // Catch any exceptions (errors) thrown from the 'try' block
             catch(PDOException $e) {

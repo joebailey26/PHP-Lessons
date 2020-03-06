@@ -26,3 +26,7 @@ DATABASE_PASS="db_pass"
 - [ ] Fix admin login
 
 - [ ] Test update song
+
+- [ ] Reduce user balance
+
+- [ ] Fix Search Results Alternate

@@ -14,13 +14,17 @@
                 require("database_connection.php");
 
                 // Send an SQL query to the database server
-                $results = $conn->query("select * from ht_users where username='$username'");
+                $statement = $conn->prepare("select * from ht_users where username=?");
 
-                if ($results->fetch(PDO::FETCH_ASSOC) == false) {
+                $statement->execute([$username]);
+
+                if ($statement->fetch() == false) {
                     echo "That user doesn't exist";
                 }
                 else {
-                    $conn->query("update ht_users set password='$newpassword' where username='$username'");
+                    $statement_two = $conn->query("update ht_users set password=? where username=?");
+
+                    $statement_two->execute([$newpassword, $username]);
                     echo "<p>Password updated successfully</p>";
                 }
             }
