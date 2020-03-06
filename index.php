@@ -14,15 +14,17 @@
         if ($_SESSION["gatekeeper"]) {
             $username = $_SESSION["gatekeeper"];
             // Try to do the following code. It might generate an exception (error)
-            try 
-            {
+            try {
                 require("database_connection.php");
 
                 // Send an SQL query to the database server
-                $results = $conn->query("select * from ht_users where username='$username'");
+                $statement = $conn->prepare("select * from ht_users where username=?");
 
-                $row = $results->fetch(PDO::FETCH_ASSOC);
-                echo '<h2>Welcome Back '.$username.'. Your balance is £'.$row["balance"].'</h2>';
+                $statement->execute([$username]);
+
+                while($row = $statement->fetch()) {
+                    echo '<h2>Welcome Back '.$username.'. Your balance is £'.$row["balance"].'</h2>';
+                }
             }
             // Catch any exceptions (errors) thrown from the 'try' block
             catch(PDOException $e) 

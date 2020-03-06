@@ -16,14 +16,13 @@
                 $results = $conn->query("select * from ht_users where username='$username' AND password='$password'");
 
                 if ($results->fetch(PDO::FETCH_ASSOC)) {
-                    $_SESSION["gatekeeper"] = $username;
                     while($row=$results->fetch(PDO::FETCH_ASSOC)) {
-                        print_r($row["isadmin"]);
+                        $_SESSION["gatekeeper"] = $row["username"];
                         if ($row["isadmin"] == 1) {
                             $_SESSION["admin"] = $row["isadmin"];
                         };
+                        header("Location: index.php");
                     };
-                    // header("Location: index.php");
                 }
                 else {
                     echo "Try again";

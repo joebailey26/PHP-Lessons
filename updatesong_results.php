@@ -21,9 +21,9 @@
                 else {
                     echo "<form method='post' action='updatesong_results_results.php'>";
                     echo "<label for='chart_position'>Chart Position</label>";
-                    echo "<input name='chart_position' value='" . $row["chart_position"] . "' /><br/>";
+                    echo "<input type='number' name='chart_position' value='" . $row["chart_position"] . "' /><br/>";
                     echo "<label for='price'>Price</label>";
-                    echo "<input name='price' value='" . $row["price"] . "' /><br/>";
+                    echo "£<input type='number' name='price' value='" . $row["price"] . "' /><br/>";
                     echo "<input type='hidden' name='id' value='" . $row["id"] . "' />";
                     echo "<input type='submit'/>";
                     echo "</form>";
