@@ -1,5 +1,6 @@
 <?php
-    if (ctype_alpha($_POST["type"]) && ctype_alnum($_POST["search"])) {
+    $validFields = [ "year", "title","artist"];
+    if (ctype_alpha($_POST["type"]) && ctype_alnum($_POST["search"]) && in_array($_POST["type"], $validFields)) {
         include("functions.php");
         $type = $_POST["type"];
         $search = $_POST["search"];
@@ -14,9 +15,9 @@
                 require("database_connection.php");
 
                 // Send an SQL query to the database server
-                $statement = $conn->query("select * from wadsongs where ?=?");
+                $statement = $conn->prepare("select * from wadsongs where $type=?");
 
-                $statement->execute([$type, $search]);
+                $statement->execute([$search]);
 
                 if (!$statement->fetch()) {
                     echo "Your search returned no results!";
