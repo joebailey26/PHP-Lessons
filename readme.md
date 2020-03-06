@@ -29,4 +29,4 @@ DATABASE_PASS="db_pass"
 
 - [ ] Reduce user balance
 
-- [ ] Fix Search Results Alternate
+- [*] Fix Search Results Alternate
