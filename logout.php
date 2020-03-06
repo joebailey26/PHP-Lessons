@@ -7,4 +7,4 @@
     session_destroy();
 ?>
 <p>Logged out successfully</p>
-<a href="/">Back to home page</a>
+<a href="/~ephp062/">Back to home page</a>

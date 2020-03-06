@@ -1,8 +1,11 @@
 <?php
+
     include("functions.php"); 
+
     if (!$_SESSION["gatekeeper"]) {
         header("Location: login.php");
     }
+    
 ?>
 <!DOCTYPE html>
 <html>

@@ -21,9 +21,10 @@
                     if ($row) {
                         $_SESSION["gatekeeper"] = $row["username"];
                         if ($row["isadmin"] == 1) {
+                            echo $row["isadmin"];
                             $_SESSION["admin"] = $row["isadmin"];
                         };
-                        header("Location: index.php");
+                        // header("Location: index.php");
                     }
                     else {
                         echo "Try again";

@@ -1,10 +1,10 @@
 <?php
 
+    include("functions.php"); 
+
     if (!$_SESSION["admin"]) {
         header("Location: login.php");
-    }
-
-    include("functions.php"); 
+    };
 
 ?>
 <html>
