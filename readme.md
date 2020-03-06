@@ -22,3 +22,7 @@ DATABASE_PASS="db_pass"
 - [*] Update SQL Queries to match uni database
 
 - [*] While loop only shows data if more than 1 entry is in Database
+
+- [ ] Fix admin login
+
+- [ ] Test update song
