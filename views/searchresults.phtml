@@ -1,0 +1,15 @@
+<html>
+<body>
+
+<h1>Songs of year <?=$year; ?></h1>
+
+<p>
+
+<?php
+while($row = $results->fetch())
+{
+    echo "Song: " . $row['title'] . " Artist: " .$row['artist'] . "<br />";
+}
+?>
+</body>
+</html>

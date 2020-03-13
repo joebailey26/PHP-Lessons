@@ -1,0 +1,11 @@
+<html>
+<body>
+
+<?php
+while($row = $results->fetch()) {
+    echo "Song: " . $row['title'] . " Artist: " .$row['artist'] . "<br />";
+    echo "Year: " . $row['year'] . " Downloads: " .$row['downloads'] . "<br />";
+}
+?>
+</body>
+</html>
